@@ -25,11 +25,11 @@ const config = {
     telegram: '',
     website: '',
     phone: '',
-    email: 'petlikarayan@gmail.com',
+    email: 'ayan@apetl.com',
   },
   resume: {
     fileUrl:
-      'https://drive.google.com/file/d/1xCfM3UHwHy_ko98fOYVteoefy-URPGgU/view?usp=sharing', // Empty fileUrl will hide the `Download Resume` button.
+      'https://drive.proton.me/urls/S3SKYEKZQ8#KIQ9SBLSn39z', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'Python',
