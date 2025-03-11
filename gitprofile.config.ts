@@ -59,7 +59,7 @@ const CONFIG = {
   },
   resume: {
     fileUrl:
-      'https://drive.proton.me/urls/S3SKYEKZQ8#KIQ9SBLSn39z', // Empty fileUrl will hide the `Download Resume` button.
+      'https://purple-axolotl.b-cdn.net/Resume.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'Python',
