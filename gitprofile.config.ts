@@ -1,26 +1,56 @@
-// gitprofile.config.js
+// gitprofile.config.ts
 
-const config = {
+const CONFIG = {
   github: {
-    username: 'apetl', // Your GitHub org/user name. (Required)
-    sortBy: 'stars', // stars | updated
-    limit: 10, // How many projects to display.
-    exclude: {
-      forks: true, // Forked projects will not be displayed if set to true.
-      projects: ['apetl', 'apetl.github.io'], // These projects will not be displayed. example: ['my-project1', 'my-project2']
+    username: 'apetl', // Your GitHub org/user name. (This is the only required config)
+  },
+  /**
+   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
+   * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
+   * for example your repository is at https://github.com/arifszn/portfolio, then set base to '/portfolio/'.
+   */
+  base: '/',
+  projects: {
+    github: {
+      display: true, // Display GitHub projects?
+      header: 'Github Projects',
+      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      automatic: {
+        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
+        limit: 8, // How many projects to display.
+        exclude: {
+          forks: true, // Forked projects will not be displayed if set to true.
+          projects: ['apetl', 'apetl.github.io'], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        },
+      },
+      manual: {
+        // Properties for manually specifying projects
+        projects: ['apetl/rcipher', 'apetl/search-engine', 'apetl/nano-link'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+      },
     },
+    external: {},
+  },
+  seo: {
+    title: 'Portfolio of Ayan',
+    description: '',
+    imageURL: '',
   },
   social: {
     linkedin: '',
-    twitter: '',
+    x: '',
     mastodon: '',
+    researchGate: '',
     facebook: '',
     instagram: '',
+    reddit: '',
+    threads: '',
+    youtube: '', // example: 'pewdiepie'
+    udemy: '',
     dribbble: '',
     behance: '',
     medium: '',
     dev: '',
-    stackoverflow: '', // format: userid/username
+    stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
     telegram: '',
     website: '',
@@ -37,32 +67,12 @@ const config = {
     'JavaScript',
     'React Native',
     'Git',
+    'Rust',
+    'Go',
   ],
-  /* experiences: [
-    {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'September 2021',
-      to: 'Present',
-      companyLink: 'https://example.com',
-    },
-    {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'July 2019',
-      to: 'August 2021',
-      companyLink: 'https://example.com',
-    },
-  ], */
-  /* certifications: [
-    {
-      name: 'Lorem ipsum',
-      body: 'Lorem ipsum dolor sit amet',
-      year: 'March 2022',
-      link: 'https://example.com'
-    },
-  ], */
-  education: [
+  experiences: [],
+  certifications: [],
+  educations: [
     {
       institution: 'Brock University',
       degree: 'Computer Science',
@@ -76,15 +86,9 @@ const config = {
       to: 'June 2021',
     },
   ],
-
-  // To hide the `My Projects` section, keep it empty.
-  externalProjects: [],
-  // Display blog posts from your medium or dev account. (Optional)
-  /* blog: {
-    source: 'dev', // medium | dev
-    username: 'arifszn', // to hide blog section, keep it empty
-    limit: 2, // How many posts to display. Max is 10.
-  }, */
+  publications: [],
+  // Display articles from your medium or dev account. (Optional)
+  blog: {},
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
   },
@@ -94,7 +98,7 @@ const config = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'dark',
+    defaultTheme: 'procyon',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
@@ -104,8 +108,8 @@ const config = {
     // using user system preferences, instead of the hardcoded defaultTheme
     respectPrefersColorScheme: false,
 
-    // Hide the ring in Profile picture
-    hideAvatarRing: false,
+    // Display the ring in Profile picture
+    displayAvatarRing: true,
 
     // Available themes. To remove any theme, exclude from here.
     themes: [
@@ -138,10 +142,13 @@ const config = {
       'night',
       'coffee',
       'winter',
+      'dim',
+      'nord',
+      'sunset',
       'procyon',
     ],
 
-    // Custom theme
+    // Custom theme, applied to `procyon` theme
     customTheme: {
       primary: '#fc055b',
       secondary: '#219aaf',
@@ -159,6 +166,8 @@ const config = {
       target="_blank"
       rel="noreferrer"
     >GitProfile</a> and ❤️`,
+
+  enablePWA: true,
 };
 
-export default config;
+export default CONFIG;
